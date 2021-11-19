@@ -15,7 +15,28 @@
 `arp -na`
 
 # Wifi configuration
-`sudo nano /etc/netplan/50-cloud-init.yaml`
+`sudo vim /etc/netplan/50-cloud-init.yaml`
+
+
+```
+network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional: true
+    wifis:
+        wlan0:
+            dhcp4: true
+            optional: true
+            access-points:
+                "your home network":
+                    password: "password" 
+                "your office network":
+                    password: "password"
+    version: 2
+ 
+```
+
 
 `sudo netplan apply`
 
