@@ -3,6 +3,7 @@
 
 # Configuring the keyboard layout
 `sudo dpkg-reconfigure keyboard-configuration` 
+
 `sudo reboot now`
 
 # Configuring the timezone
