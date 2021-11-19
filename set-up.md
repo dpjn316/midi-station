@@ -2,8 +2,8 @@
 `cat /etc/passwd`
 
 # Configuring the keyboard layout
-sudo dpkg-reconfigure keyboard-configuration 
-sudo reboot now
+`sudo dpkg-reconfigure keyboard-configuration` 
+`sudo reboot now`
 
 # Configuring the timezone
 sudo dpkg-reconfigure tzdata 
