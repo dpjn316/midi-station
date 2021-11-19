@@ -1,5 +1,5 @@
 # You can change the user name before installing ubuntu server
-cat /etc/passwd
+`cat /etc/passwd`
 
 # Configuring the keyboard layout
 sudo dpkg-reconfigure keyboard-configuration 
