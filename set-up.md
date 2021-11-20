@@ -111,3 +111,31 @@ WantedBy=multi-user.target
 ## Creating a boot script
 `/etc/init.d/`
 
+## Fail try to install x42 lv2 plugin
+
+
+``` 
+sudo apt install make
+sudo apt install pkg-config
+sudo apt-get install lv2-dev
+sudo apt-get install cc-tool
+sudo apt-get install lv2file 
+sudo apt-get install lv2proc 
+sudo apt-get install lv2-c++-tools
+sudo apt-get install gcc
+
+git clone git://github.com/x42/midimap.lv2.git
+cd midimap.lv2/
+vim Makefile
+```
+
+```
+-OPTIMIZATIONS ?= -msse -msse2 -mfpmath=sse -ffast-math -fomit-frame-pointer -O3 -fno-finite-math-only -DNDEBUG
++OPTIMIZATIONS ?= -ffast-math -fomit-frame-pointer -O3 -fno-finite-math-only -DNDEBUG
+```
+
+```
+sudo make
+sudo make install
+```
+
