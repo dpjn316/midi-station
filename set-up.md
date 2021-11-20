@@ -1,20 +1,20 @@
-# You can change the user name before installing ubuntu server
+## You can change the user name before installing ubuntu server
 `cat /etc/passwd`
 
-# Configuring the keyboard layout
+## Configuring the keyboard layout
 `sudo dpkg-reconfigure keyboard-configuration` 
 
 `sudo reboot now`
 
-# Configuring the timezone
+## Configuring the timezone
 `sudo dpkg-reconfigure tzdata` 
 
-# Configuring network tools
+## Configuring network tools
 `sudo apt install net-tools`
 
 `arp -na`
 
-# Wifi configuration
+## Wifi configuration
 `sudo vim /etc/netplan/50-cloud-init.yaml`
 
 
@@ -42,18 +42,21 @@ network:
 
 `sudo reboot`
 
-# Change hostname
+## Change hostname
 `sudo vi /etc/hostname` 
 
 `sudo reboot now`
 
-# Check shells
+## Check shells
 `cat /etc/shells`
 
-# Make an executable file
+## Make an executable file
 `chmod  u+x myscript.sh`
 
-# Installing midi utils
+## Logging into /var/log
+`sudo ./auto-connect-midi-interface.sh`
+
+## Installing midi utils
 `sudo apt update`
 
 `sudo apt upgrade` 
@@ -72,7 +75,27 @@ network:
 
 `sudo reboot`
 
-# Checking permissions
+## To create deamon on linux
+- Go to `/etc/systemd/system`
+- Create a file `vim auto-connect-midi-interface.service` with this content:
+
+```
+[Unit]
+Description=Auto connect a midi interface
+
+[Service]
+ExecStart=/bin/bash /usr/sbin/auto-connect-midi-interface.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+
+- Copy sh file `auto-connect-midi-interface.sh` to `/usr/sbin/'
+- Run `sudo systemctl enable auto-connect-midi-interface`
+- Run `systemctl start auto-connect-midi-interface`
+- Run `systemctl status auto-connect-midi-interface`
+
+## Checking permissions
 `grep audio /etc/group`
 
 `echo -n performance`
@@ -85,6 +108,6 @@ network:
 
 `aplaymidi -l`
 
-# Creating a boot script
+## Creating a boot script
 `/etc/init.d/`
 
