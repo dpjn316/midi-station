@@ -3,7 +3,7 @@
 MIDI_INTERFACE="E-MU XMidi2X2"
 CONNECTED=""
 MSG=""
-LOG="/var/log/auto_connect_midi_interface.log"
+LOG="/var/log/auto-connect-midi-interface.log"
 while true;do
 	DATE=$(date +'%Y-%m-%d %H:%M:%S %:z')
 	E_MU_ID=$(aconnect -l | grep -P "client \d+: '${MIDI_INTERFACE}'" -o | grep -P "(\d+):" -o) 
