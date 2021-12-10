@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto connect a midi interface
+
+[Service]
+ExecStart=/bin/bash /usr/sbin/auto-connect-midi-interface.sh
+
+[Install]
+WantedBy=multi-user.target
+
