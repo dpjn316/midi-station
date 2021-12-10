@@ -49,6 +49,8 @@ network:
 
 ## Check shells
 `cat /etc/shells`
+`ps -p $$`
+
 
 ## Make an executable file
 `chmod  u+x myscript.sh`
@@ -91,6 +93,7 @@ WantedBy=multi-user.target
 ```
 
 - Copy sh file `auto-connect-midi-interface.sh` to `/usr/sbin/'
+- `sudo cp ~/midi/station/auto-connect-midi-interface.sh /usr/sbin/
 - Run `sudo systemctl enable auto-connect-midi-interface`
 - Run `systemctl start auto-connect-midi-interface`
 - Run `systemctl status auto-connect-midi-interface`
@@ -138,4 +141,33 @@ vim Makefile
 sudo make
 sudo make install
 ```
+
+## Other commands
+`aseqnet`, `aseqview`, `amidi`
+
+# Poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+
+# Python rtmidi
+git clone https://github.com/SpotlightKid/python-rtmidi.git
+cd python-rtmidi/
+poetry init
+poetry install
+
+sudo apt install pkg-config
+sudo apt install jack
+sudo apt install jackd
+sudo apt-get install libasound2-dev
+sudo apt install g++
+sudo apt-get install python3-dev
+
+
+pasuspender -- jackd -d alsa --device hw:0 --rate 44100 --period 128
+jackd -dalsa -dhw:U192k -r44100 -p1024 -n2 -Xseq
+
+poetry add pyliblo
+poetry add Cython
+poetry show --graph
+sudo apt install liblo-dev
+poetry add pyliblo
 
