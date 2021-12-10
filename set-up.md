@@ -79,7 +79,7 @@ network:
 
 ## To create deamon on linux
 - Go to `/etc/systemd/system`
-- Create a file `vim auto-connect-midi-interface.service` with this content:
+- Create a file `vim auto-connect-midi-interface.service` with this content or copy the `etc/systemd/system/auto-connect-midi-interface.service` to `/etc/systemd/system`
 
 ```
 [Unit]
@@ -92,6 +92,7 @@ ExecStart=/bin/bash /usr/sbin/auto-connect-midi-interface.sh
 WantedBy=multi-user.target
 ```
 
+- Run `sudo cp etc/systemd/system/auto-connect-midi-interface.service /etc/systemd/system/.`
 - Copy sh file `auto-connect-midi-interface.sh` to `/usr/sbin/'
 - `sudo cp ~/midi/station/auto-connect-midi-interface.sh /usr/sbin/
 - Run `sudo systemctl enable auto-connect-midi-interface`
