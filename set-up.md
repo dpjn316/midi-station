@@ -150,6 +150,7 @@ sudo make install
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
 
 # Python rtmidi
+```
 git clone https://github.com/SpotlightKid/python-rtmidi.git
 cd python-rtmidi/
 poetry init
@@ -171,4 +172,4 @@ poetry add Cython
 poetry show --graph
 sudo apt install liblo-dev
 poetry add pyliblo
-
+```
